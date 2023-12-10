@@ -1,1 +1,11 @@
-<p>home works!</p>
+<main>
+  <div class="container">
+    <app-task-form (onSubmit)="add($event)"></app-task-form>
+    <app-task
+      *ngFor="let task of tasks"
+      [task]="task"
+      (onDelete)="delete(task.id!)"
+      (onToggleImportance)="toggleImportance(task.id!)"
+    ></app-task>
+  </div>
+</main>

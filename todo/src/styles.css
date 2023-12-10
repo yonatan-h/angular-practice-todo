@@ -5,9 +5,18 @@
 }
 
 body {
-  background: linear-gradient(to bottom right, #d300e8, #ff0051);
+  background: linear-gradient(to bottom right, #c000ee, hsl(341, 40%, 50%));
   font-family: sans-serif;
   min-height: 100vh;
   min-width: 100vw;
   color: rgb(39, 39, 39);
+}
+
+.container {
+  max-width: 400px;
+  margin: auto;
+}
+
+main {
+  padding-top: 5rem;
 }

@@ -10,7 +10,6 @@ import { TaskService } from './services/task.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
-
 @NgModule({
   declarations: [
     AppComponent,
