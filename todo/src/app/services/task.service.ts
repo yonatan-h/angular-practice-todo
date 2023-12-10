@@ -1,53 +1,35 @@
 import { Injectable, OnInit } from '@angular/core';
 import Task from '../Task';
-import { Observable, of } from 'rxjs';
+import { Observable, of, switchMap, map, pipe, flatMap, mergeMap } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
-  tasks: Task[] = [
-    {
-      id: 0,
-      title: 'Finish Project',
-      description:
-        'Create components and services, connect to server, implement navigation',
-      isImportant: true,
-    },
-    {
-      id: 1,
-      title: 'Tailwind',
-      description:
-        'Create components and services, connect to server, implement navigation',
-      isImportant: false,
-    },
-  ];
-
-  constructor() {
-    console.log('here1');
-  }
+  url = 'http://localhost:3000/tasks';
+  headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  constructor(private http: HttpClient) {}
 
   getTasks(): Observable<Task[]> {
-    return of(this.tasks);
+    return this.http.get<Task[]>(this.url);
   }
 
   add(task: Task): Observable<Task[]> {
-    task.id = Math.random() * 1000;
-    this.tasks.push(task);
-    return of(this.tasks);
+    return this.http
+      .post(this.url, task, { headers: this.headers })
+      .pipe(mergeMap((res) => this.getTasks()));
   }
 
   toggleImportance(id: number): Observable<Task[]> {
-    this.tasks.forEach((task) => {
-      if (task.id === id) {
-        task.isImportant = !task.isImportant;
-      }
-    });
-    return of(this.tasks);
+    return this.http
+      .patch(`${this.url}/${id}`, { isImportant: true })
+      .pipe(mergeMap((res) => this.getTasks()));
   }
 
   delete(id: number): Observable<Task[]> {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
-    return of(this.tasks);
+    return this.http
+      .delete(`${this.url}/${id}`)
+      .pipe(mergeMap((res) => this.getTasks()));
   }
 }

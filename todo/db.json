@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": 0,
+      "title": "Finish Project",
+      "description": "Create components and services, connect to server, implement navigation",
+      "isImportant": true
+    },
+    {
+      "id": 1,
+      "title": "Buy Tea Bags",
+      "description": "Go to the marker and buy tea bags, milk, eggs, bread",
+      "isImportant": false
+    },
+    {
+      "id": 2,
+      "title": "Clean House",
+      "description": "Dust, and mop the floors",
+      "isImportant": true
+    }
+  ]
+}

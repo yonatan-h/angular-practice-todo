@@ -7,5 +7,14 @@
       (onDelete)="delete(task.id!)"
       (onToggleImportance)="toggleImportance(task.id!)"
     ></app-task>
+
+    <app-task
+      *ngIf="tasks.length === 0"
+      [task]="{
+        title: 'Looks like you have no tasks.',
+        description: 'Here is one... Use the form to add a new task',
+        isImportant: true,
+    }"
+    ></app-task>
   </div>
 </main>
