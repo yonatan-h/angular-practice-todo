@@ -5,8 +5,9 @@
 }
 
 body {
-    background: linear-gradient(to bottom right, #d300e8, #ff0051);
-    font-family: sans-serif;
-    min-height: 100vh;
-    min-width: 100vw;
-  }
+  background: linear-gradient(to bottom right, #d300e8, #ff0051);
+  font-family: sans-serif;
+  min-height: 100vh;
+  min-width: 100vw;
+  color: rgb(39, 39, 39);
+}

@@ -1,1 +1,9 @@
-<p>task works!</p>
+<div class="task" [class.important]="task.isImportant">
+  <div>
+    <p>{{ task.title }}</p>
+    <p>{{ task.description }}</p>
+  </div>
+  <div>
+    <button>-</button>
+  </div>
+</div>
