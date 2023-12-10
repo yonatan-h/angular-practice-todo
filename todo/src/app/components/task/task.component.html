@@ -1,9 +1,9 @@
-<div class="task" [class.important]="task.isImportant">
+<div class="task" [class.important]="task.isImportant" (click)="toggleImportance()">
   <div>
     <p>{{ task.title }}</p>
     <p>{{ task.description }}</p>
   </div>
   <div>
-    <button>-</button>
+    <button (click)="delete()">-</button>
   </div>
 </div>

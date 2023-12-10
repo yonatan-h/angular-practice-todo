@@ -2,24 +2,12 @@
 
 <main>
   <div class="container">
-    <app-task-form></app-task-form>
+    <app-task-form (onSubmit)="add($event)"></app-task-form>
     <app-task
-      [task]="{
-        id: 0,
-        title: 'Finish Project',
-        description:
-          'Create components and services, connect to server, implement navigation',
-        isImportant: true
-      }"
+      *ngFor="let task of tasks"
+      [task]="task"
+      (onDelete)="delete(task.id!)"
+      (onToggleImportance)="toggleImportance(task.id!)"
     ></app-task>
-    <app-task
-    [task]="{
-      id: 0,
-      title: 'Tailwind',
-      description:
-        'Create components and services, connect to server, implement navigation',
-      isImportant: false
-    }"
-  ></app-task>
   </div>
 </main>
